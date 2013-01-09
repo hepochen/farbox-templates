@@ -9,11 +9,11 @@
 
 -   《默认模板》 相册、博客自适应  <---> Default
 
--   《图片布局》 仅适用于相册  <---> Layout
+-   [《图片布局》](http://layout.farbox.com) 仅适用于相册  <---> Layout
 
--   《简洁博客-1》 仅适用于博客  <--->   Detail
+-   [《简洁博客-1》](http://detail.farbox.com) <--->   Detail
 
--   《简洁博客-2》 仅适用于博客  <---> JianSu
+-   [《简洁博客-2》](http://jiansu.farbox.com) 仅适用于博客  <---> JianSu
 
 **Default内的代码，也是其它模板会默认继承的。**
 
