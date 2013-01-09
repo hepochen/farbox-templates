@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel='alternate' type='application/rss+xml' title='atom 1.0' href='/feed' />
+    <title>{% block title %} {% endblock %}</title>
+    <link rel="stylesheet" href="http://resource.farbox.com/css/default-template.css?version={{ resource_version }}">
+    <link rel="stylesheet" href="http://resource.farbox.com/css/basic.css?version={{ resource_version }}">
+</head>
+<body>
+
+<div id="header">
+    <h1> <a href="/">{{ site.title or 'THIS IS MY SITE'}}</a></h1>
+
+{% if has('posts') %}
+    <ul id="nav">
+        <li>
+            <a href="/" {% block nav_index%} {% endblock %}>Home</a>
+        </li>
+        <li>
+            <a href="/archive" {% block nav_archive %} {% endblock %}>Archive</a>
+        </li>
+        {%  if has('images') %}
+        <li>
+            <a href="/folder/" {% block nav_folder %} {% endblock %}>Photos</a>
+        </li>
+        {% endif %}
+        <li>
+            <a href="/pages/links"  {% if request.path == '/pages/links' %}class="current"{% endif %}>Links</a>
+        </li>
+
+        <li>
+            <a href="/pages/about"  {% if request.path == '/pages/about' %}class="current"{% endif %}>About</a>
+        </li>
+    </ul>
+{% endif %}
+
+</div>
+
+<div id="content">
+    {% block content %}
+    {% endblock %}
+</div>
+
+
+{% include 'include/footer.html' %}
+
+
+</body>
+</html>
+
+

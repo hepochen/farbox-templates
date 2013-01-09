@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block title %}{{ file.title }}{% endblock %}
+
+{% block nav_folder %}
+    class="current"
+{% endblock %}
+
+{% set next_one = get_connected_one('>') %}
+{% set pre_one = get_connected_one('<') %}
+
+{% block content %}
+
+    <div class="post">
+        <h2 class="title">{{ file.title }}</h2>
+
+        <div class="information">
+            <span class="date">{{ file.date | date('%Y-%m-%d %H:%M') }}</span>
+        </div>
+
+        <div class="image">
+            <img src="{{ file.url }}?width=960" />
+
+            {{ bread_nav(file.path, '/folder/') }}
+
+            <div class="connected_images">
+                {% if pre_one %}
+                    <a href="/file/{{ pre_one.path }}" class="pre">
+                        <span>&lt;{{ pre_one.title }}</span>
+                    </a>
+                {% else %}
+                    <a href="#pre_one" class="pre" id="pre_one">
+                        <span>&lt;没有上一张了</span>
+                    </a>
+                {% endif %}
+
+                {% if next_one %}
+                    <a href="/file/{{ next_one.path }}" class="next">
+                        <span>&gt;{{ next_one.title }}</span>
+                    </a>
+                {% else %}
+                    <a href="#next_one" class="next" id="next_one">
+                        <span>&gt;没有下一张了</span>
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+
+        {% if file.exif.latitude %}
+        <iframe width="95%" style="margin-left: 2.5%" height="450" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+                src="http://ditu.google.cn/maps?f=q&source=s_q&hl=zh_cn&geocode=&q={{ file.exif.latitude }},{{ file.exif.longitude }}&t=m&ie=UTF8&z=13&output=embed">
+        </iframe>
+        {% endif %}
+    </div>
+
+     <div id="disqus_thread" class="comments"></div>
+
+    {{ get_text_file('comment_js').raw_content }}
+
+{% endblock %}

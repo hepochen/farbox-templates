@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh">
+    <title>{{ site.title }}</title>
+    <link href="http://{{ site.domain }}/" rel="alternate"></link>
+    <link href="http://{{ site.domain }}/" rel="self"></link>
+    <id>{{ site.domain }}</id>
+    {% for post in posts %}
+    <entry>
+        <title>{{ post.title }}</title>
+        <link href="http://{{ site.domain }}{{ post.url }}" rel="alternate"></link>
+        <updated>{{ post.date }}</updated>
+        <id>{{ post.url_path }}</id>
+        <summary type="html">{{ post.content | escape }}</summary>
+    </entry>
+    {% endfor %}
+</feed>

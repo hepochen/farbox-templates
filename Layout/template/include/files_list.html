@@ -1,0 +1,27 @@
+
+<div class="grids" id='grids'>
+    {% for image in files %}
+    <div class="image">
+        <a class="title" href="javascript:void(0)" >{{ image.title }}</a>
+        <a class='show_image' href="{{image.url}}?width=960" title='{{image.title}}'>
+            <img src='{{image.url}}?width=640&height=400&fixed=true'>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+
+{% include 'include/paginator.html' %}
+
+<script type="text/javascript">
+    window.addEvent('domready', function(){
+        $$('#grids a.show_image').cerabox({fullSize:true});
+        $$('#grids a.title').each(function(title){
+            title.addEvent('click',function(){
+                this.getNext('.show_image').fireEvent('click');
+            });
+
+        })
+    });
+</script>
+
+

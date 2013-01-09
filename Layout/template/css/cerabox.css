@@ -1,0 +1,263 @@
+#cerabox-loading {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	width: 40px;
+	height: 40px;
+	margin-top: -20px;
+	margin-left: -20px;
+	cursor: pointer;
+	overflow: hidden;
+	z-index: 1106;
+	display: none;
+
+	-webkit-transform: scale(1);
+	-webkit-transform-origin: 50% 50%;
+	transform: scale(1);
+	transform-origin: 50% 50%;
+}
+
+#cerabox-loading div {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 40px;
+	height: 480px;
+	background-image: url("img/cerabox.png");
+}
+
+#cerabox-background {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1100;
+	display: none;
+	background: #000;
+	opacity: .5;
+}
+
+#cerabox {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 1101;
+	display: none;
+	opacity: 0;
+	background: #fff;
+
+	-webkit-transform: scale(1);
+	-webkit-transform-origin: 0 0;
+	transform: scale(1);
+	transform-origin: 0 0;
+}
+
+#cerabox .cerabox-content {
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	outline: none;
+	position: relative;
+	overflow: hidden;
+	z-index: 1102;
+	border: 0px solid #fff;
+	/*CSS3*/
+	-moz-box-shadow: 0 0 30px -5px #333;
+	-webkit-box-shadow: 0 0 30px -5px #333;
+	box-shadow: 0 0 30px -5px #333;
+}
+
+#cerabox span.cerabox-error, #cerabox .cerabox-title span {
+	padding: 10px;
+	display: block;
+	font-family: Helvetica;
+	font-size: 12px;
+	color: #000;
+	line-height: normal;
+}
+#cerabox span.cerabox-error { text-align: justify; }
+#cerabox .cerabox-title span { display: none; color: #fff; }
+
+#cerabox .cerabox-title {
+	z-index: 1102;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	color: #FFF;
+	text-align: left;
+	background: #000;
+	background: rgba(0,0,0,.8);
+	width: 100%;
+
+	-webkit-transform: scale(1);
+	-webkit-transform-origin: 0 100%;
+	transform: scale(1);
+	transform-origin: 0 100%;
+}
+
+
+#cerabox .cerabox-close {
+	position: absolute;
+	top: -20px;
+	right: -20px;
+	width: 40px;
+	height: 40px;
+	background: url('img/cerabox.png') -42px 0px no-repeat;
+	cursor: pointer;
+	z-index: 1105;
+
+	-webkit-transform: scale(1);
+	-webkit-transform-origin: 100% 0;
+	transform: scale(1);
+	transform-origin: 100% 0;
+}
+
+#cerabox .cerabox-content img.image {
+	float: left;
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	border: none;
+	outline: none;
+	line-height: 0;
+	vertical-align: top;
+}
+
+#cerabox .cerabox-content iframe.iframe {
+	width: 100%;
+	height: 100%;
+	border: none;
+	display: block;
+}
+
+#cerabox a.cerabox-left, #cerabox a.cerabox-right {
+	position: absolute;
+	bottom: 0px;
+	height: 100%;
+	width: 35%;
+	cursor: pointer;
+	outline: none;
+	background: transparent url('img/blank.gif');
+	z-index: 1104;
+	display: none;
+}
+
+#cerabox a.cerabox-left {
+	left: 0px;
+
+	-webkit-transform: scale(1);
+	-webkit-transform-origin: 0 50%;
+	transform: scale(1);
+	transform-origin: 0 50%;
+}
+
+#cerabox a.cerabox-right {
+	right: 0px;
+
+	-webkit-transform: scale(1);
+	-webkit-transform-origin: 100% 50%;
+	transform: scale(1);
+	transform-origin: 100% 50%;
+}
+
+#cerabox a.cerabox-left span, #cerabox a.cerabox-right span {
+	position: absolute;
+	top: 50%;
+	/*left: -9999px;*/
+	width: 40px;
+	height: 40px;
+	margin-top: -20px;
+	cursor: pointer;
+	z-index: 1104;
+	display: block;
+}
+
+#cerabox a.cerabox-left:hover span, #cerabox.mobile a.cerabox-left span {
+	background-image: url('img/cerabox.png');
+	background-position: -42px -40px;
+	background-repeat: no-repeat;
+	left: -20px;
+}
+
+#cerabox a.cerabox-right:hover span, #cerabox.mobile a.cerabox-right span {
+	background-image: url('img/cerabox.png');
+	background-position: -42px -80px;
+	background-repeat: no-repeat;
+	right: -20px;
+}
+
+#cerabox .cerabox-content-protection {
+	display: none;
+	position: absolute;
+	background: transparent url('img/blank.gif');
+	z-index: 1103;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: 0;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	user-select: none;
+}
+
+/*IE6*/
+#cerabox-loading.ceraboxbox-ie6 {
+	position: absolute; margin-top: 0;
+	top: expression( (-20 + (document.documentElement.clientHeight ? document.documentElement.clientHeight/2 : document.body.clientHeight/2 ) + ( ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop )) + 'px');
+}
+
+
+
+/*Mobile*/
+#cerabox.mobile {
+	/*width: 100% !important;
+	height: 100% !important;*/
+	background: #000;
+}
+
+#cerabox.mobile .cerabox-content {
+	background: #fff;
+	/*CSS3*/
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+#cerabox.mobile .cerabox-content :first-child {
+	background: #fff;
+}
+
+#cerabox.mobile .cerabox-close {
+	top: 2px !important;
+	right: 0 !important;
+}
+
+#cerabox.mobile a.cerabox-left span {
+	left: 0 !important;
+}
+
+#cerabox.mobile a.cerabox-right span {
+	right: 0 !important;
+}
+
+#cerabox.mobile a.cerabox-left, #cerabox.mobile a.cerabox-right {
+	width: 10%;
+}
+
+/* @2x
+-------------------------------------------------------------------------------*/
+@media  only screen and (-webkit-min-device-pixel-ratio: 2),
+		only screen and (min-device-pixel-ratio: 2) {
+
+	#cerabox-loading div,
+	#cerabox .cerabox-close,
+	#cerabox a.cerabox-left:hover span, #cerabox.mobile a.cerabox-left span,
+	#cerabox a.cerabox-right:hover span, #cerabox.mobile a.cerabox-right span {
+		/* Reference the @2x Sprite */
+		background-image: url('img/cerabox@2x.png');
+		/* Translate the @2x sprite's dimensions back to 1x */
+		background-size: 82px auto;
+	}
+}

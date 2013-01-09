@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}{{ site.title }}{% endblock %}
+
+{% block nav_index %}
+    class="current"
+{% endblock %}
+
+{% block content %}
+    {% if configs.posts and configs.files %}
+        {% if posts %}
+            {% include 'include/posts_list.html' %}
+        {% elif files %}
+            {% include 'include/files_list.html' %}
+        {% endif %}
+    {% elif configs.posts %}
+        {% include 'include/posts_list.html' %}
+    {% elif configs.files %}
+        {% include 'include/files_list.html' %}
+    {% endif %}
+{% endblock %}

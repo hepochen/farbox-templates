@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ post.title }}
+{% endblock %}
+
+{% block content %}
+    <div class="entry">
+        <div class="title">
+            {{ post.title }}
+        </div>
+        <div class='quota'>
+        </div>
+        <div class="content">
+            <div class="split"></div>
+            {{ post.content }}
+            <div class="user_cover">
+                <img src='{{site.avatar}}?s=48'>
+            </div>
+            <div class='created'>
+                {{post.date | date("%Y-%m-%d %H:%M")}}
+            </div>
+
+        </div>
+    </div>
+
+    <div id="disqus_thread" class="comments"></div>
+
+    {{ get_text_file('comment_js').raw_content }}
+
+{% endblock %}

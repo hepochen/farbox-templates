@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+    <title>{% block title %} {% endblock %}</title>
+
+    <link href="http://resource.farbox.com/css/basic.css?version={{resource_version}}" rel="stylesheet" type="text/css" />
+    <link href="/t/css/cerabox.css?v=img_layout" rel="stylesheet" type="text/css" />
+    <link href="/t/css/layout.css?v=img_layout" rel="stylesheet" type="text/css" />
+
+    <script type="text/javascript" src="http://lib.sinaapp.com/js/mootools/1.3.1/mootools.min.js"></script>
+    <script type="text/javascript" src="/t/js/mootools-more-1.4.0.1.js?v=img_layout"></script>
+    <script type="text/javascript" src="/t/js/layout.js?v=img_layout"></script>
+    <script type="text/javascript" src="/t/js/cerabox.min.js?v=img_layout"></script>
+
+</head>
+<body>
+
+
+<div class="site">
+    <h1><a href="/">{{ site.title or 'THIS IS MY SITE'}}</a></h1>
+    <div class="hr"></div>
+</div>
+
+
+<div class="container">
+    {% block content %}
+    {% endblock %}
+</div>
+
+
+{% include 'include/footer.html' %}
+
+</body>
+</html>
+
+
