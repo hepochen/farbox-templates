@@ -19,6 +19,6 @@
 
 ## 使用方法
 
-每个模板内都有个template目录，整个拷贝到自己的网站目录即可。
+每个模板内都有个template目录，比如`Layout/template`，拷贝到自己的网站目录下即可。
 
 [整个文件包的下载地址](https://github.com/hepochen/farbox-templates/archive/master.zip)
