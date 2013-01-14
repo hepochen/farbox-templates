@@ -4,4 +4,6 @@ images
 domains.config
 *.md
 .DS_Store
-Icon
+*Icon*
+image.farbox.com
+.dropbox
