@@ -10,7 +10,7 @@
         <div class="split"></div>
         {{ post.content | limit(350) }}
         <div class="user_cover">
-            <img src='{{lazy.master_avatar}}?s=48'>
+            <img src='{{site.avatar}}?s=48'>
         </div>
         <div class='created'>
             {{post.date | date("%Y-%m-%d %H:%M")}}
