@@ -25,13 +25,18 @@
             <a href="/folder/" {% block nav_folder %} {% endblock %}>Photos</a>
         </li>
         {% endif %}
-        <li>
-            <a href="/pages/links"  {% if request.path == '/pages/links' %}class="current"{% endif %}>Links</a>
-        </li>
 
+        {% if has('links.md') %}
         <li>
-            <a href="/pages/about"  {% if request.path == '/pages/about' %}class="current"{% endif %}>About</a>
+            <a href="/links.md"  {% if request.path == '/links.md' %}class="current"{% endif %}>Links</a>
         </li>
+        {% endif %}
+
+        {% if has('about.md') %}
+        <li>
+            <a href="/about.md"  {% if request.path == '/about.md' %}class="current"{% endif %}>About</a>
+        </li>
+        {% endif %}
     </ul>
 {% endif %}
 
