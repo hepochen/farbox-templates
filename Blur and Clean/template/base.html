@@ -11,7 +11,7 @@
 
 <div id="page">
 
-    {% set title= get_text_file('title').raw_content or site.title%}
+    {% set title= site.configs.title or site.title%}
 
     <div id='head'>
         <div class="ribbon_1"> </div>

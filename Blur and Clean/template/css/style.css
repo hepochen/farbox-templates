@@ -232,7 +232,7 @@ hr {
 
 
 
-#disqus_thread, .ds-thread {
+#fb_comments_container {
     margin:80px auto 0 auto;
     width: 760px;
 }

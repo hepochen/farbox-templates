@@ -37,13 +37,7 @@
 </div>
 
 
-
-
-
-
-<div id="disqus_thread" class="comments"></div>
-
-{{ get_text_file('comment_js').raw_content }}
+{% include 'include/comments.html'%}
 
 {% endblock %}
 
