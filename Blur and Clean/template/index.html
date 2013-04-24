@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}{{ site.title }}{% endblock %}
+
+{% block content %}
+    {% if configs.posts and posts%}
+
+
+        <div class="container" id="posts">
+        {% include 'include/posts_list.html' %}
+        </div>
+
+    {% elif configs.files and files%}
+
+        {% include 'include/files_list.html' %}
+
+    {% endif %}
+{% endblock %}
