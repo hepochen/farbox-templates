@@ -7,7 +7,7 @@
 
 ## 对应关系
 
--   《默认模板》 相册、博客自适应  <---> Default
+-   《默认模板》 相册、博客自适应  <---> Default V2
 
 -   [《Blur & Clean》](http://blur.farbox.com) 仅适用于博客
 
