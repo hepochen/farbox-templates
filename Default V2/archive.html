@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% set total_posts = get_posts(limit=300, sort=1) %}
+{% if request.args.use == 'tags' %}
+    {% set entries = group(total_posts, 'tags') %}
+{% else %}
+    {% set entries = group(total_posts, 'date:year') %}
+{% endif %}
+
+{% block content %}
+    {% include 'include/description.html' %}
+
+
+    <ul class="list_with_title container">
+    {% for year, posts in entries %}
+        <li class="listing_title">{{ year }}</li>
+        <ul class='listing'>
+        {% for post in posts %}
+            <li class="listing-item">
+                <span class="date">{{ post.date | date("%Y-%m-%d") }}</span>
+                <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+            </li>
+        {% endfor %}
+        </ul>
+    {% endfor %}
+    </ul>
+{% endblock %}
+
+
+

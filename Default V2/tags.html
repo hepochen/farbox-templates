@@ -1,0 +1,6 @@
+{% extends 'base.html' %}
+{% block title %}{{ tags | join(' ') }}{% endblock %}
+
+{% block content %}
+    {% include 'include/posts_list.html' %}
+{% endblock %}

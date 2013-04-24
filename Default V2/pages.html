@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {% if request.path == '/pages/links' %}
+        Links Friends
+    {% elif request.path == '/pages/about' %}
+        About Me
+    {% else %}
+        {{ post.title }}
+    {% endif %}
+
+{% endblock %}
+
+
+{% block content %}
+    {{ post.content }}
+{% endblock %}

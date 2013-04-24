@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+
+    <link rel='alternate' type='application/rss+xml' title='atom 1.0' href='/feed' />
+    <title>{% block title %}{{ site.title }} {% endblock %}</title>
+    <link rel="stylesheet" href="http://resource.farbox.com/css/default-template-v2.css?version={{ resource_version }}">
+    <link rel="stylesheet" href="http://resource.farbox.com/css/basic.css?version={{ resource_version }}">
+
+    {% block head %}
+    {% endblock %}
+
+</head>
+<body>
+
+{% if site.configs.head_bg %}
+    {% set head_bg = site.configs.head_bg %}
+{% elif post and post.metadata.head_bg%}
+    {% set head_bg = post.metadata.head_bg %}
+{% endif %}
+
+<div id="header" {% if head_bg %}style="background: {{ head_bg }}"{% endif %}>
+
+    <ul id="nav">
+        <li>
+            <a href="/">Home</a>
+        </li>
+        {% if has('posts') %}
+        <li>
+            <a href="/archive">Archive</a>
+        </li>
+
+        {% if site.tags %}
+        <li>
+            <a href="/archive?use=tags">Tags</a>
+        </li>
+        {% endif %}
+
+        {% endif %}
+        {% if has('images') and has('posts')%}
+        <li>
+            <a href="/folder/">Photo</a>
+        </li>
+        {% endif %}
+        {% if has('links.md') %}
+        <li>
+            <a href="/links.md">Links</a>
+        </li>
+        {% endif %}
+
+        {% if has('about.md') %}
+        <li>
+            <a href="/about.md">About</a>
+        </li>
+        {% endif %}
+    </ul>
+</div>
+
+{% block content %}
+{% endblock %}
+
+
+
+{% include 'include/footer.html' %}
+
+
+</body>
+</html>
+
+
