@@ -8,9 +8,11 @@
 {% for file in files %}
     <li {% if file.content_type == 'folder' %}class="folder"{% endif %}>
         <a href="/file/{{file.path}}">
-            <img src='{{ file.url }}?width=320&height=214&fixed=true' title="{{ file.title }}, {{ file.images_count }} photos in it." />
             {% if file.content_type == 'folder' %}
-            <span>{{ file.title }} <small>({{ file.images_count }})</small></span>
+                <img src='{{ file.url }}?width=320&height=214&fixed=true' title="{{ file.title }}, {{ file.images_count }} photos in it." />
+                <span>{{ file.title }} <small>({{ file.images_count }})</small></span>
+            {% else %}
+                <img src='{{ file.url }}?width=320&height=214&fixed=true' title="{{ file.title }}" />
             {% endif %}
         </a>
     </li>

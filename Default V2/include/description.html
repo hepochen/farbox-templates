@@ -1,3 +1,10 @@
+{% if site.configs.no_cover and site.configs.no_cover not in ['yes', True] %}
+    {% set display_desc = True %}
+{% elif site.configs.use_cover in ['yes', True]%}
+    {% set display_desc = True %}
+{% endif %}
+
+{% if display_desc %}
 <div id="description">
     {% if post and post.metadata.cover %}
         <img id="description_bg" src="{{ post.metadata.cover }}?height=350"/>
@@ -34,3 +41,4 @@
         </div>
     </div>
 </div>
+{% endif %}

@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}{{ folder.title or Images }}{% endblock %}
+{% block title %}{{ folder.title or "Images" }}{% endblock %}
 
 {% block content %}
     {% include 'include/files_list.html' %}

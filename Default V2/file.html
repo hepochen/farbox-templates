@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 {% block title %}{{ file.title }}{% endblock %}
 
+{% block head %}
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=5, user-scalable=yes" name="viewport">
+{% endblock %}
+
 {% set next_one = get_connected_one('>') %}
 {% set pre_one = get_connected_one('<') %}
 

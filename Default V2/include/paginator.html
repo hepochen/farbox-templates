@@ -1,3 +1,7 @@
+{% if not paginator %}
+    {% set paginator = get_paginator() %}
+{% endif %}
+
 {% if paginator.has_previous or  paginator.has_next %}
     <div class="clear"></div>
     <div class="pager">
