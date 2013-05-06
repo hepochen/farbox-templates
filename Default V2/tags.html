@@ -2,5 +2,7 @@
 {% block title %}{{ tags | join(' ') }}{% endblock %}
 
 {% block content %}
-    {% include 'include/posts_list.html' %}
+    <div class="container" id="posts">
+        {% include 'include/posts_list.html' %}
+    </div>
 {% endblock %}

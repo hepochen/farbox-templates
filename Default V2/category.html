@@ -3,5 +3,7 @@
 
 {% block content %}
     {% include 'include/description.html' %}
-    {% include 'include/posts_list.html' %}
+    <div class="container" id="posts">
+        {% include 'include/posts_list.html' %}
+    </div>
 {% endblock %}
