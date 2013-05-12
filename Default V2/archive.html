@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 
-{% set total_posts = get_posts(limit=300, sort=1) %}
+{% set total_posts = get_posts(limit=300, sort='asc') %}
 {% if request.args.use == 'tags' %}
     {% set entries = group(total_posts, 'tags') %}
 {% else %}
-    {% set entries = group(total_posts, 'date:year') %}
+    {% set entries = group(total_posts, 'date:year', reverse=True) %}
 {% endif %}
 
 {% block content %}
