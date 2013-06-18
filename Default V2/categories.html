@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}Categories{% endblock %}
+
+{% block content %}
+
+    <ul class="categories" id="categories">
+    {% set categories = get_folders(level=[1,2], min_posts_count=1) %}
+    {% for category in  sorted_by_position(categories)%}
+        <li>
+            <a href="/category/{{ category.path }}">
+                <h3>{{ category.title }}</h3>
+                <span> {{ category.posts_count }} 篇文章</span>
+            </a>
+        </li>
+    {% endfor %}
+
+    </ul>
+
+
+
+<script type="text/javascript">
+
+    function auto_margin(){
+        var e = document.getElementById('categories');
+        e.style.marginLeft = 0;
+        var width = document.width || document.body.clientWidth;
+        if (e && width > 302){
+            e.style.marginLeft = ( width% 306) /2 + 'px';
+        }
+    }
+
+    auto_margin();
+
+    window.onresize = auto_margin;
+
+</script>
+
+{% endblock %}

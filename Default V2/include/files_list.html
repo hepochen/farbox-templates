@@ -2,20 +2,43 @@
     {{ bread_nav(folder.path, '/folder/') }}
 {% endif %}
 
+{% set by_mobile = is_mobile() or detect_device('ipad') %}
+{% if by_mobile %}
+    <link href="http://resource.farbox.com/photoswipe/photoswipe.css" type="text/css" rel="stylesheet" />
+
+	<script type="text/javascript" src="http://resource.farbox.com/photoswipe/code.photoswipe-3.0.5.min.js"></script>
+
+    <script type="text/javascript">
+		(function(window, PhotoSwipe){
+			document.addEventListener('DOMContentLoaded', function(){
+				var
+					options = {},
+					instance = PhotoSwipe.attach( window.document.querySelectorAll('#image_list li.image a'), options );
+
+			}, false);
+		}(window, window.Code.PhotoSwipe));
+	</script>
+{% endif %}
+
+
 <div id="images_container">
 
 <ul class="image_list" id="image_list">
 {% for file in files %}
-    <li {% if file.content_type == 'folder' %}class="folder"{% endif %}>
+    {% if file.content_type == 'folder' %}
+    <li class="folder">
         <a href="/file/{{file.path}}">
-            {% if file.content_type == 'folder' %}
-                <img src='{{ file.url }}?width=320&height=214&fixed=true' title="{{ file.title }}, {{ file.images_count }} photos in it." />
-                <span>{{ file.title }} <small>({{ file.images_count }})</small></span>
-            {% else %}
-                <img src='{{ file.url }}?width=320&height=214&fixed=true' title="{{ file.title }}" />
-            {% endif %}
+            <img src='{{ file.url }}?width=320&height=214&fixed=true' title="{{ file.title }}, {{ file.images_count }} photos in it." />
+            <span>{{ file.title }} <small>({{ file.images_count }})</small></span>
         </a>
     </li>
+    {% else %}
+        <li class="image">
+        <a href="{% if by_mobile %}{{ file.url }}{% else %}/file/{{file.path}}{% endif %}">
+            <img src='{{ file.url }}?width=320&height=214&fixed=true' title="{{ file.title }}" />
+        </a>
+    </li>
+    {% endif %}
 {% endfor %}
 </ul>
 

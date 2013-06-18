@@ -8,9 +8,9 @@
     <meta content="telephone=no" name="format-detection">
 
     <link rel='alternate' type='application/rss+xml' title='atom 1.0' href='/feed' />
-    <title>{% block title %}{{ site.title }} {% endblock %}</title>
-    <link rel="stylesheet" href="http://resource.farbox.com/css/default-template-v2.css?version={{ resource_version }}">
-    <link rel="stylesheet" href="http://resource.farbox.com/css/basic.css?version={{ resource_version }}">
+    <title>{% block title %}{{ site.configs.title or site.title }} {% endblock %}</title>
+    <link rel="stylesheet" href="{{ resource_host }}/css/default-template-v3.css?version={{ resource_version }}">
+    <link rel="stylesheet" href="{{ resource_host }}/css/basic.css?version={{ resource_version }}">
 
     {% block head %}
     {% endblock %}
@@ -30,18 +30,24 @@
         <li>
             <a href="/">Home</a>
         </li>
-        {% if has('posts') %}
+    {% if has('posts') %}
         <li>
             <a href="/archive">Archive</a>
         </li>
+
+        {% if has('categories') %}
+        <li>
+            <a href="/categories">Categories</a>
+        </li>
+        {% endif %}
 
         {% if site.tags %}
         <li>
             <a href="/archive?use=tags">Tags</a>
         </li>
         {% endif %}
+    {% endif %}
 
-        {% endif %}
         {% if has('images') and has('posts')%}
         <li>
             <a href="/folder/">Photo</a>

@@ -6,23 +6,15 @@
 
 {% if display_desc %}
 <div id="description">
-    {% if post and post.metadata.cover %}
-        <img id="description_bg" src="{{ post.metadata.cover }}?height=350"/>
-        {% set cover_author = post.metadata.cover_author %}
-    {% elif site.configs.cover %}
+    {% if site.configs.cover %}
         <img id="description_bg" src="{{ site.configs.cover }}?height=350"/>
         {% set cover_author = site.configs.cover_author %}
-    {% else %}
-        <img id="description_bg" src="http://resource.farbox.com/image/cover.jpg"/>
-        {% set cover_author = 'Shutterhacks@Flickr & Licenses:CC BY 2.0' %}
     {% endif %}
 
-    <div id="description_content"  {% if cover_author %}title="photo by {{ cover_author }}"{% endif %}>
+    <div id="description_content"  {% if site.configs.cover %}class="with_bg"{% endif %}>
         <div class="slogan">
             <div class="slogan_content">
-                {% if post and post.metadata.foreword %}
-                    {{ post.metadata.foreword | linebreaks }}
-                {% elif site.description %}
+                {% if site.description %}
                     {{ site.description | linebreaks }}
                 {% else %}
                 <p>

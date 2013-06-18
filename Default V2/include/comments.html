@@ -4,6 +4,7 @@
     {{ custom_comment }}
 {% else %}
 
+
 <div id="fb_comments_container">
     <ul id="fb_comments">
         {% set comments = get_comments(context_doc) %}
@@ -60,7 +61,7 @@
     </form>
 
     <script src="http://resource.farbox.com/swfstore/swfstore.min.js" type="text/javascript"></script>
-
+    <link rel="stylesheet" href="http://resource.farbox.com/css/comment.css?version={{ resource_version }}">
 
     <script type="text/javascript">
 
