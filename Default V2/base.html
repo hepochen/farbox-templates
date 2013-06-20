@@ -35,7 +35,7 @@
             <a href="/archive">Archive</a>
         </li>
 
-        {% if has('categories') %}
+        {% if not site.configs.no_categories in ['yes', True, 'true'] and has('categories') %}
         <li>
             <a href="/categories">Categories</a>
         </li>
