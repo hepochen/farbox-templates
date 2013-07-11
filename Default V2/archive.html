@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% set total_posts = get_posts(limit=300, sort='asc') %}
+{% set total_posts = get_posts(limit=300, sort='desc') %}
 {% if request.args.use == 'tags' %}
     {% set entries = group(total_posts, 'tags') %}
 {% else %}

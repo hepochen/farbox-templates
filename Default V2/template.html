@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>FarBox模板引擎</title>
+    <link rel="stylesheet" href="{{ resource_host }}/css/clone-template.css?version={{ resource_version }}">
+    <script type="text/javascript" src="{{ resource_host }}/lib/jquery/1.8.1-jquery.min.js"></script>
+    <script src="{{ resource_host }}/swfstore/swfstore.min.js" type="text/javascript"></script>
+
+</head>
+<body>
+
+    <div id="clone_template">
+
+        <label for="site">你的网站地址:</label>
+        <input type="text" id="site"/>
+
+        {% if get_template_key() %}
+        <div class="checkbox">
+            <input type="checkbox" id="auto_update"/>
+            <label>自动更新模板</label>
+        </div>
+        {% endif %}
+
+
+        <a class="button" href="#" onclick="clone_template();return false;" id="redirect">
+            克隆模板
+        </a>
+
+    </div>
+
+
+<script type="text/javascript">
+    $(document).ready(function(){
+
+        $('#auto_update').mousedown(function() {
+        if (!$(this).is(':checked')) {
+            this.checked = confirm("克隆的网站模板有可能会处于变动的状态；除了作者的修正、优化、增强之外，也有可能引发错误甚至暗门。\n\n" +
+                    "请确保你是信任当前模板的作者？");
+            $(this).trigger("change");
+            }
+        });
+
+
+        var info_store = new SwfStore({
+            namespace: 'farbox',
+            swf_url: 'http://resource.farbox.com/swfstore/storage.swf',
+            debug: true,
+            onready: function(){
+                $('#site').val(info_store.get('template_site') || '')
+
+            },
+            onerror: function(){
+            }
+        });
+
+        $('#redirect').click(function(){
+            info_store.set('template_site', $('#site').val());
+        });
+
+        $('#site').focus();
+
+    });
+
+
+    function clone_template(){
+        var domain = $.trim($('#site').val()).toLowerCase();
+        if (domain.indexOf('http://')==-1){
+            domain = 'http://' + domain;
+        }
+        var url = domain.replace(/\/$/g, '') + '/?template_site_id={{ site._id }}';
+        url += '&auto_update='+ $('#auto_update').is(':checked');
+        window.location.href = url;
+    }
+
+</script>
+
+
+
+</body>
+</html>
+
+

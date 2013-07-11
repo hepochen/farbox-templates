@@ -15,17 +15,17 @@
 
         <div class="info">
 		    <span class="date" title="发布日期">
-                <i aria-hidden="true" class="icon-clock"></i>
+                <i class="icon-clock"></i>
                 {{ post.date | date('%Y-%m-%d %H:%M') }}
             </span>
 		    <span class="visitors" title="访问量">
-                <i aria-hidden="true" class="icon-user"></i>
+                <i class="icon-user"></i>
                 {{ post.visits or 0}}
             </span>
 
             {% if post.tags %}
 	        <span class="tags">
-	            <i aria-hidden="true" class="icon-tags"></i>
+	            <i class="icon-tags"></i>
                 {% for tag in post.tags %}
 	             <a href="/tags/{{ tag }}">{{ tag }}</a>
                 {% endfor %}
